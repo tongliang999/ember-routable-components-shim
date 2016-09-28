@@ -38,6 +38,10 @@ export function patchOutletKeyword() {
     let nodeManager = ViewNodeManager.create(renderNode, env, attrs, options, parentView, null, null, template);
     state.manager = nodeManager;
 
+    // patch
+    Ember.set(nodeManager.component, '_z_controller', toRender.controller);
+    Ember.set(toRender.controller, '_z_component', nodeManager.component);
+
     nodeManager.render(env, hash, visitor);
   };
 }

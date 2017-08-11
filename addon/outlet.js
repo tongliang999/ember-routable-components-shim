@@ -16,7 +16,7 @@ export function patchOutletKeyword() {
     let Component = owner._lookupFactory(`component:${componentName}`);
     let layout = owner.lookup(`template:components/${componentName}`);
 
-    if (!(Component || layout)) {
+    if (!(Component /*|| layout*/)) {
       //routable component or template not found, use base implementation
       return baseRender(...arguments);
     }

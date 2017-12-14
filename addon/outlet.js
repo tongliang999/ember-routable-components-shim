@@ -39,6 +39,7 @@ export function patchOutletKeyword() {
     state.manager = nodeManager;
 
     // patch
+    Ember.set(nodeManager.component, 'targetObject', toRender.controller);
     Ember.set(nodeManager.component, '_z_controller', toRender.controller);
     Ember.set(toRender.controller, '_z_component', nodeManager.component);
 
